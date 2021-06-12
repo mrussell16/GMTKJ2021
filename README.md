@@ -16,13 +16,8 @@ Key ideas:
 
 # ToDo
 
-* Sat Evening
-    * Movable objects
-        * Move in light dimension will move in the dark dimension
-        * Move in dark dimension will not move in light dimension
 * Sun Morn
     * Better player sprite + animation (maybe get online)
-    * Better enemy sprite + animation (maybe get online)
     * Sounds
         * Portal
             * Dimension

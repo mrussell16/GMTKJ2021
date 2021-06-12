@@ -7,6 +7,8 @@ var initial_position := Vector2.ZERO
 var in_light := true
 var moved := false
 
+const LIGHT_COLLISION_BIT = 0
+const DARK_COLLISION_BIT = 2
 
 func _ready() -> void:
     light_position = global_position
@@ -27,6 +29,9 @@ func set_dimension(light: bool) -> void:
     in_light = light
     initial_position = global_position
     moved = false
+
+    set_collision_mask_bit(LIGHT_COLLISION_BIT, in_light)
+    set_collision_mask_bit(DARK_COLLISION_BIT, !in_light)
 
     if in_light:
         global_position = light_position
