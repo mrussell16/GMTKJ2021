@@ -35,7 +35,6 @@ func reset_player():
 
 
 func _on_end_portal_entered(_body: Node):
-    print("End level")
     var _ret = get_tree().change_scene("res://levels/"+next_level+".tscn")
 
 

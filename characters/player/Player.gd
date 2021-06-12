@@ -11,6 +11,7 @@ export var jump_pressed_remember_time := 0.1
 export var grounded_remember_time := 0.1
 export var max_dark_time := 5.0
 export var jump_dark_usage := 0.5
+export var reset_cooldown := 0.5
 
 const LIGHT_COLLISION_BIT = 0
 const DARK_COLLISION_BIT = 2
@@ -18,9 +19,11 @@ const DARK_COLLISION_BIT = 2
 var velocity := Vector2.ZERO
 var grounded_remember := 0.0
 var jump_remember := 0.0
+var reset_cooldown_timer := -1.0
 var facing_right := true
 var dark_timer := max_dark_time
 var in_light := true
+var bouncing := false
 var entry_position := Vector2(52.0, 270.0)
 
 onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -33,8 +36,17 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-    grounded_remember -= delta
-    jump_remember -= delta
+    if grounded_remember >= 0:
+        grounded_remember -= delta
+
+    if jump_remember >= 0:
+        jump_remember -= delta
+
+    if reset_cooldown_timer >= 0:
+        reset_cooldown_timer -= delta
+        velocity = calculate_velocity(velocity, 0, false, false)
+        velocity = move_and_slide(velocity, Vector2.UP)
+        return
 
     if is_on_floor():
         grounded_remember = grounded_remember_time
@@ -42,7 +54,7 @@ func _physics_process(delta: float) -> void:
     if Input.is_action_just_pressed("jump"):
         jump_remember = jump_pressed_remember_time
 
-    var is_jumping := (grounded_remember > 0) and (jump_remember > 0)
+    var is_jumping := ((grounded_remember > 0) and (jump_remember > 0)) or bouncing
     if is_jumping:
         grounded_remember = 0
         jump_remember = 0
@@ -54,12 +66,13 @@ func _physics_process(delta: float) -> void:
     if !in_light:
         if direction != 0:
             dark_timer -= delta
-        if is_jumping:
+        if is_jumping and not bouncing:
             dark_timer -= jump_dark_usage
 
     flip_if_necessary(direction)
     velocity = calculate_velocity(velocity, direction, is_jumping, is_jump_interrupted)
     velocity = move_and_slide(velocity, Vector2.UP)
+    bouncing = false
 
     if !in_light:
         emit_signal("dark_time_remaining", dark_timer, max_dark_time)
@@ -100,7 +113,13 @@ func set_dimension(light: bool) -> void:
 
 func reset_position() -> void:
     position = entry_position
+    velocity = Vector2.ZERO
+    reset_cooldown_timer = reset_cooldown
 
 
 func kill() -> void:
     emit_signal("player_killed")
+
+
+func bounce() -> void:
+    bouncing = true

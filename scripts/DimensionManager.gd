@@ -6,22 +6,41 @@ signal end_portal_entered
 
 onready var walls: TileMap = $Walls
 
-var tutorial: CanvasLayer
 var tutorial_texts = []
+var light_seeds = []
+var enemies = []
 
 const PLAYER_COLLISION_BIT = 1
 
+
 func _ready() -> void:
-    tutorial = get_node("Tutorial")
-    if tutorial:
-        tutorial_texts = tutorial.get_children()
+    var tutorial_parent = get_node_or_null("Tutorial")
+    if tutorial_parent:
+        tutorial_texts = tutorial_parent.get_children()
+
+    var enemies_parent = get_node_or_null("Enemies")
+    if enemies_parent:
+        enemies = enemies_parent.get_children()
+
+    var light_seeds_parent = get_node_or_null("LightSeeds")
+    if light_seeds_parent:
+        light_seeds = light_seeds_parent.get_children()
+
 
 func set_active(active: bool) -> void:
     visible = active
     walls.set_collision_mask_bit(PLAYER_COLLISION_BIT, active)
     walls.set_occluder_light_mask(1 if active else 0)
+
     for tutorial_text in tutorial_texts:
         tutorial_text.visible = active
+
+    for enemy in enemies:
+        enemy.set_alive(true)
+
+    for light_seed in light_seeds:
+        light_seed.set_active(true)
+
 
 func _on_end_portal_entered(body: Node) -> void:
     emit_signal("end_portal_entered", body)

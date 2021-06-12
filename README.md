@@ -17,19 +17,23 @@ Key ideas:
 # ToDo
 
 * Sat Afternoon
-    * Add collectible light seeds
-        * New level to introduce this
-    * Add enemies to get light seeds
-        * Jump on enemies to kill them
-    * Spike traps
     * Win Screen - thanks for playing
 * Sat Evening
+    * Main menu
     * Movable objects
         * Move in light dimension will move in the dark dimension
         * Move in dark dimension will not move in light dimension
 * Sun Morn
     * Better player sprite + animation (maybe get online)
-    * Portal Sounds
+    * Sounds
+        * Portal
+            * Dimension
+            * Level
+        * Light seed
+        * Death
+            * Spike
+            * Enemy
+            * Timeout
     * Music
 * Sun Afternoon
     * Itch page
