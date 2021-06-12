@@ -16,8 +16,11 @@ Key ideas:
 
 # ToDo
 
-* Implement countdown for dimension swap
+* Countdown for dark dimension
+    * Reset player to light dimension portal when out of time
+* Add enemies to get light seeds
+* Better player sprite
 * More Levels
-    * Enemies
-* Sound
+* Portal Sounds
+* Music
 * Release
