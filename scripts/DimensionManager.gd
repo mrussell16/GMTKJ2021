@@ -12,5 +12,5 @@ func set_active(active: bool) -> void:
     visible = active
     walls.set_collision_mask_bit(PLAYER_COLLISION_BIT, active)
 
-func _on_end_portal_entered(_body: Node) -> void:
-    emit_signal("end_portal_entered")
+func _on_end_portal_entered(body: Node) -> void:
+    emit_signal("end_portal_entered", body)
