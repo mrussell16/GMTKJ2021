@@ -12,6 +12,7 @@ export var grounded_remember_time := 0.1
 export var max_dark_time := 5.0
 export var jump_dark_usage := 0.5
 export var reset_cooldown := 0.5
+export var push_force := 100
 
 const LIGHT_COLLISION_BIT = 0
 const DARK_COLLISION_BIT = 2
@@ -71,8 +72,15 @@ func _physics_process(delta: float) -> void:
 
     flip_if_necessary(direction)
     velocity = calculate_velocity(velocity, direction, is_jumping, is_jump_interrupted)
-    velocity = move_and_slide(velocity, Vector2.UP)
+    velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
     bouncing = false
+
+    for index in get_slide_count():
+        var collision = get_slide_collision(index)
+        if collision.collider.is_in_group("movables") and abs(collision.normal.y) < 0.01:
+            var push_vector = Vector2.RIGHT * direction * push_force
+            push_vector.y = 0.1
+            collision.collider.apply_central_impulse(push_vector)
 
     if !in_light:
         emit_signal("dark_time_remaining", dark_timer, max_dark_time)

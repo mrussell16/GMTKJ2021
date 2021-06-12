@@ -17,8 +17,6 @@ Key ideas:
 # ToDo
 
 * Sat Evening
-    * Win Screen - thanks for playing
-    * Main menu
     * Movable objects
         * Move in light dimension will move in the dark dimension
         * Move in dark dimension will not move in light dimension

@@ -20,6 +20,11 @@ func _ready() -> void:
     reset_player()
 
 
+func _process(_delta: float):
+    if Input.is_action_just_pressed("reset"):
+        var _ret = get_tree().reload_current_scene()
+
+
 func swap_dimension():
     in_light = !in_light
     light_level.set_active(in_light)

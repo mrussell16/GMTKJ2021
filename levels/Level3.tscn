@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
+[ext_resource path="res://levels/Level3_dark.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/Level3_light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/portal/Portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/box/Box.tscn" type="PackedScene" id=7]
+
+[node name="Level3" type="Node2D"]
+script = ExtResource( 1 )
+next_level = "Win"
+
+[node name="Dark" parent="." instance=ExtResource( 2 )]
+
+[node name="Light" parent="." instance=ExtResource( 3 )]
+
+[node name="Portals" type="Node2D" parent="."]
+
+[node name="Portal" parent="Portals" instance=ExtResource( 5 )]
+position = Vector2( 118.942, 95.6869 )
+
+[node name="Portal2" parent="Portals" instance=ExtResource( 5 )]
+position = Vector2( 473.566, 243.369 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 52, 269.251 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1648
+limit_bottom = 304
+smoothing_enabled = true
+smoothing_speed = 7.0
+
+[node name="Box" parent="." instance=ExtResource( 7 )]
+position = Vector2( 257.819, 269.887 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[connection signal="swap_dimension" from="Portals/Portal" to="." method="swap_dimension"]
+[connection signal="swap_dimension" from="Portals/Portal2" to="." method="swap_dimension"]
+[connection signal="dark_time_remaining" from="Player" to="." method="_on_player_dark_time_remaining"]
+[connection signal="dark_time_remaining" from="Player" to="HUD" method="_on_dark_time_remaining"]
+[connection signal="player_killed" from="Player" to="." method="reset_player"]
+
+[editable path="HUD"]
