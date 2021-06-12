@@ -23,12 +23,16 @@ Key ideas:
             * Dimension
             * Level
         * Light seed
+        * Button
         * Death
             * Spike
             * Enemy
             * Timeout
-    * Music
-* Sun Afternoon
     * Itch page
     * Initial Release
-    * More Levels - if there is time
+* Sun Afternoon
+    * Music
+    * Music Release
+    * Stretch
+        * Level 4
+        * Final Level Release
