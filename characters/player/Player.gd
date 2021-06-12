@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name Player
 
-signal dark_time_remaining(time)
+signal dark_time_remaining(time, max_time)
 
 export var move_speed := 200.0
 export var jump_factor := 0.4
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
     velocity = move_and_slide(velocity, Vector2.UP)
 
     if !in_light:
-        emit_signal("dark_time_remaining", dark_timer)
+        emit_signal("dark_time_remaining", dark_timer, max_dark_time)
 
 
 func calculate_velocity(start_velocity: Vector2, direction: float, is_jumping: bool, is_jump_interrupted: bool) -> Vector2:

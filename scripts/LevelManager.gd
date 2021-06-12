@@ -4,10 +4,12 @@ class_name LevelManager
 
 onready var DimensionManager = preload("res://scripts/DimensionManager.gd")
 onready var Player = preload("res://characters/player/Player.gd")
+onready var HUD = preload("res://ui/HUD.gd")
 
 onready var dark_level: DimensionManager = $Dark
 onready var light_level: DimensionManager = $Light
 onready var player: Player = $Player
+onready var hud: HUD = $HUD
 
 var in_light := false
 var entry_portal_position := Vector2(52.0, 270.0)
@@ -30,6 +32,7 @@ func swap_dimension():
     light_level.set_active(in_light)
     dark_level.set_active(!in_light)
     player.set_dimension(in_light)
+    hud.set_dimension(in_light)
 
 
 func reset_player():
@@ -42,6 +45,6 @@ func _on_end_portal_entered(_body: Node):
     print("End level")
 
 
-func _on_player_dark_time_remaining(time: float):
+func _on_player_dark_time_remaining(time: float, _max_time: float):
     if time <= 0:
         reset_player()
