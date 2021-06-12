@@ -39,7 +39,7 @@ smoothing_speed = 7.0
 [connection signal="end_portal_entered" from="Light" to="." method="_on_end_portal_entered"]
 [connection signal="swap_dimension" from="Portals/Portal" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal2" to="." method="swap_dimension"]
-[connection signal="dark_time_remaining" from="Player" to="." method="_on_player_dark_time_remaining"]
 [connection signal="dark_time_remaining" from="Player" to="HUD" method="_on_dark_time_remaining"]
+[connection signal="dark_time_remaining" from="Player" to="." method="_on_player_dark_time_remaining"]
 
 [editable path="HUD"]

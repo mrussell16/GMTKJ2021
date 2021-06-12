@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tilesets/Tileset_light.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/DimensionManager.gd" type="Script" id=2]
-[ext_resource path="res://images/Win_Tutorial.png" type="Texture" id=3]
-[ext_resource path="res://images/Move_Tutorial.png" type="Texture" id=4]
-[ext_resource path="res://images/Swap_Tutorial.png" type="Texture" id=5]
+[ext_resource path="res://ui/fonts/Balsamiq_Font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://objects/end_portal/EndPortal.tscn" type="PackedScene" id=6]
 
 [node name="Level1_light" type="Node2D"]
@@ -27,21 +25,46 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -6
 
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
-[node name="Win_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 386.09, 53.6049 )
-scale = Vector2( 0.182957, 0.182957 )
-texture = ExtResource( 3 )
+[node name="Swap" type="Label" parent="Tutorial"]
+margin_left = 414.398
+margin_top = 194.397
+margin_right = 475.398
+margin_bottom = 206.397
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Use Portal: E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Swap_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 287.975, 216.945 )
-scale = Vector2( 0.201998, 0.201998 )
-texture = ExtResource( 5 )
-offset = Vector2( 724.671, -80.8143 )
+[node name="Move" type="Label" parent="Tutorial"]
+margin_left = 37.0
+margin_top = 175.0
+margin_right = 107.0
+margin_bottom = 203.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Move Left: A
+Move Right: D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Move_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 79.1227, 194.004 )
-scale = Vector2( 0.188754, 0.188754 )
-texture = ExtResource( 4 )
+[node name="Win" type="Label" parent="Tutorial"]
+margin_left = 381.351
+margin_top = 35.6031
+margin_right = 459.351
+margin_bottom = 68.6031
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Reach the green portal to win"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="EndPortal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 456.835, 82.1171 )

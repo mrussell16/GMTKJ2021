@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://tilesets/Tileset_dark.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/DimensionManager.gd" type="Script" id=2]
 [ext_resource path="res://objects/spikes/Spikes.tscn" type="PackedScene" id=3]
-[ext_resource path="res://images/Seeds_Tutorial.png" type="Texture" id=4]
+[ext_resource path="res://ui/fonts/Balsamiq_Font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://objects/light_seed/LightSeed.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemy/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://images/Ememy_Tutorial.png" type="Texture" id=7]
 
 [node name="Level2_dark" type="Node2D"]
 script = ExtResource( 2 )
@@ -30,18 +29,35 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -6
 [node name="Tutorial" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
 
-[node name="Seeds_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 768, 248 )
-scale = Vector2( 0.205495, 0.205495 )
-texture = ExtResource( 4 )
+[node name="Seeds" type="Label" parent="Tutorial"]
+margin_left = 712.0
+margin_top = 232.0
+margin_right = 800.0
+margin_bottom = 264.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Light seeds will refill your energy"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Ememy_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 1024, 104 )
-scale = Vector2( 0.203488, 0.203488 )
-texture = ExtResource( 7 )
+[node name="Enemies" type="Label" parent="Tutorial"]
+margin_left = 968.0
+margin_top = 88.0
+margin_right = 1064.0
+margin_bottom = 130.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Stomp on enemies to kill them and collect energy"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 
 [node name="Spikes" type="Node2D" parent="."]

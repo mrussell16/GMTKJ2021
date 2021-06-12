@@ -1,11 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://tilesets/Tileset_dark.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/DimensionManager.gd" type="Script" id=2]
-[ext_resource path="res://images/Jump_Tutorial.png" type="Texture" id=3]
-[ext_resource path="res://images/Dark_Tutorial.png" type="Texture" id=4]
-[ext_resource path="res://images/Reset_Tutorial.png" type="Texture" id=5]
-[ext_resource path="res://images/Swap_Tutorial.png" type="Texture" id=6]
+[ext_resource path="res://ui/fonts/Balsamiq_Font.tres" type="DynamicFont" id=3]
 
 [node name="Level1_dark" type="Node2D"]
 script = ExtResource( 2 )
@@ -28,28 +25,47 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -6
 
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
-[node name="Dark_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 6.84923, 24.122 )
-scale = Vector2( 0.192796, 0.192796 )
-texture = ExtResource( 4 )
-offset = Vector2( 479.542, 248.29 )
+[node name="Swap" type="Label" parent="Tutorial"]
+margin_left = 280.021
+margin_top = 85.364
+margin_right = 341.021
+margin_bottom = 97.364
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Use Portal: E"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Reset_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( -561.125, -45.9571 )
-scale = Vector2( 0.199096, 0.199096 )
-texture = ExtResource( 5 )
-offset = Vector2( 3315.37, 958.742 )
+[node name="Dark" type="Label" parent="Tutorial"]
+margin_left = 37.0
+margin_top = 35.0
+margin_right = 194.0
+margin_bottom = 115.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "In the dark dimension you use engery when moving or jumping.
 
-[node name="Jump_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 308.127, 256.684 )
-scale = Vector2( 0.199096, 0.199096 )
-texture = ExtResource( 3 )
+If you run out of energy you will reset to the light dimension."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Swap_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( 167.839, 103.483 )
-scale = Vector2( 0.201998, 0.201998 )
-texture = ExtResource( 6 )
-offset = Vector2( 724.671, -80.8143 )
+[node name="Jump" type="Label" parent="Tutorial"]
+margin_left = 169.626
+margin_top = 210.352
+margin_right = 229.626
+margin_bottom = 222.352
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Jump: Space"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
