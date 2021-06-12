@@ -16,10 +16,22 @@ Key ideas:
 
 # ToDo
 
-* UI for dark timer
-* Add enemies to get light seeds
-* Better player sprite
-* More Levels
-* Portal Sounds
-* Music
-* Release
+* Sat Afternoon
+    * Add collectible light seeds
+        * New level to introduce this
+    * Add enemies to get light seeds
+        * Jump on enemies to kill them
+    * Spike traps
+    * Win Screen - thanks for playing
+* Sat Evening
+    * Movable objects
+        * Move in light dimension will move in the dark dimension
+        * Move in dark dimension will not move in light dimension
+* Sun Morn
+    * Better player sprite + animation (maybe get online)
+    * Portal Sounds
+    * Music
+* Sun Afternoon
+    * Itch page
+    * Initial Release
+    * More Levels - if there is time

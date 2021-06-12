@@ -19,15 +19,9 @@ func _ready() -> void:
     reset_player()
 
 
-func record_portal_position():
-    entry_portal_position = player.position
-
-
 func swap_dimension():
     in_light = !in_light
-
-    if not in_light:
-        record_portal_position()
+    entry_portal_position = player.position
 
     light_level.set_active(in_light)
     dark_level.set_active(!in_light)
