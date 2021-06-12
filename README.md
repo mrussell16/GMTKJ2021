@@ -16,9 +16,6 @@ Key ideas:
 
 # ToDo
 
-* Implement dimension swap
-    * Kick player to light side when they overlap something?
-    * Do allow swap when jumping!
 * Implement countdown for dimension swap
 * More Levels
     * Enemies
