@@ -36,10 +36,12 @@ limit_bottom = 304
 smoothing_enabled = true
 smoothing_speed = 7.0
 
-[node name="Box" parent="." instance=ExtResource( 7 )]
-position = Vector2( 257.819, 269.887 )
-
 [node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Movables" type="Node2D" parent="."]
+
+[node name="Box" parent="Movables" instance=ExtResource( 7 )]
+position = Vector2( 257.819, 269.887 )
 
 [connection signal="swap_dimension" from="Portals/Portal" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal2" to="." method="swap_dimension"]

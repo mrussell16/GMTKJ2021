@@ -14,10 +14,15 @@ onready var player: Player = $Player
 onready var hud: HUD = $HUD
 
 var in_light := false
+var movables = []
 
 
 func _ready() -> void:
     reset_player()
+
+    var movables_parent = get_node_or_null("Movables")
+    if movables_parent:
+        movables = movables_parent.get_children()
 
 
 func _process(_delta: float):
@@ -31,6 +36,8 @@ func swap_dimension():
     dark_level.set_active(!in_light)
     player.set_dimension(in_light)
     hud.set_dimension(in_light)
+    for movable in movables:
+        movable.set_dimension(in_light)
 
 
 func reset_player():

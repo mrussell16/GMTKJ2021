@@ -78,9 +78,8 @@ func _physics_process(delta: float) -> void:
     for index in get_slide_count():
         var collision = get_slide_collision(index)
         if collision.collider.is_in_group("movables") and abs(collision.normal.y) < 0.01:
-            var push_vector = Vector2.RIGHT * direction * push_force
-            push_vector.y = 0.1
-            collision.collider.apply_central_impulse(push_vector)
+            collision.collider.apply_central_impulse(Vector2.RIGHT * direction * push_force)
+            collision.collider.set_moved()
 
     if !in_light:
         emit_signal("dark_time_remaining", dark_timer, max_dark_time)
