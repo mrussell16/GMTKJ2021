@@ -5,14 +5,16 @@ class_name DimensionManager
 signal end_portal_entered
 
 onready var walls: TileMap = $Walls
-onready var tutorial: CanvasLayer = $Tutorial
 
-var tutorial_texts
+var tutorial: CanvasLayer
+var tutorial_texts = []
 
 const PLAYER_COLLISION_BIT = 1
 
 func _ready() -> void:
-    tutorial_texts = tutorial.get_children()
+    tutorial = get_node("Tutorial")
+    if tutorial:
+        tutorial_texts = tutorial.get_children()
 
 func set_active(active: bool) -> void:
     visible = active

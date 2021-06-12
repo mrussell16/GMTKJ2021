@@ -3,6 +3,7 @@ extends KinematicBody2D
 class_name Player
 
 signal dark_time_remaining(time, max_time)
+signal player_killed
 
 export var move_speed := 200.0
 export var jump_factor := 0.4
@@ -20,10 +21,15 @@ var jump_remember := 0.0
 var facing_right := true
 var dark_timer := max_dark_time
 var in_light := true
+var entry_position := Vector2(52.0, 270.0)
 
 onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 onready var jump_speed: float = ProjectSettings.get_setting("physics/2d/default_gravity") * jump_factor
 onready var sprite: Sprite = $Sprite
+
+
+func _ready() -> void:
+    entry_position = position
 
 
 func _physics_process(delta: float) -> void:
@@ -87,9 +93,14 @@ func flip_if_necessary(direction: float) -> void:
 func set_dimension(light: bool) -> void:
     in_light = light
     dark_timer = max_dark_time
+    entry_position = position
     set_collision_mask_bit(LIGHT_COLLISION_BIT, in_light)
     set_collision_mask_bit(DARK_COLLISION_BIT, !in_light)
 
 
-func reset_position(entry_portal_position: Vector2) -> void:
-    position = entry_portal_position
+func reset_position() -> void:
+    position = entry_position
+
+
+func kill() -> void:
+    emit_signal("player_killed")

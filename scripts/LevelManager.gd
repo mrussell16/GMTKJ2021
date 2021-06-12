@@ -2,6 +2,8 @@ extends Node2D
 
 class_name LevelManager
 
+export var next_level := 'Level2'
+
 onready var DimensionManager = preload("res://scripts/DimensionManager.gd")
 onready var Player = preload("res://characters/player/Player.gd")
 onready var HUD = preload("res://ui/HUD.gd")
@@ -12,7 +14,6 @@ onready var player: Player = $Player
 onready var hud: HUD = $HUD
 
 var in_light := false
-var entry_portal_position := Vector2(52.0, 270.0)
 
 
 func _ready() -> void:
@@ -21,8 +22,6 @@ func _ready() -> void:
 
 func swap_dimension():
     in_light = !in_light
-    entry_portal_position = player.position
-
     light_level.set_active(in_light)
     dark_level.set_active(!in_light)
     player.set_dimension(in_light)
@@ -31,12 +30,13 @@ func swap_dimension():
 
 func reset_player():
     in_light = false
-    player.reset_position(entry_portal_position)
+    player.reset_position()
     swap_dimension()
 
 
 func _on_end_portal_entered(_body: Node):
     print("End level")
+    var _ret = get_tree().change_scene("res://levels/"+next_level+".tscn")
 
 
 func _on_player_dark_time_remaining(time: float, _max_time: float):
