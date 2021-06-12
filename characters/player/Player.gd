@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 export var move_speed := 200.0
 export var jump_factor := 0.4
 export var jump_pressed_remember_time := 0.1
