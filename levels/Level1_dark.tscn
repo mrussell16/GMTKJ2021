@@ -55,10 +55,10 @@ __meta__ = {
 }
 
 [node name="Jump" type="Label" parent="Tutorial"]
-margin_left = 169.626
+margin_left = 171.626
 margin_top = 210.352
-margin_right = 229.626
-margin_bottom = 222.352
+margin_right = 243.626
+margin_bottom = 225.352
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )

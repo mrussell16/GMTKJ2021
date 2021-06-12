@@ -26,10 +26,10 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -6
 [node name="Tutorial" type="CanvasLayer" parent="."]
 
 [node name="Swap" type="Label" parent="Tutorial"]
-margin_left = 414.398
-margin_top = 194.397
-margin_right = 475.398
-margin_bottom = 206.397
+margin_left = 411.998
+margin_top = 191.998
+margin_right = 484.998
+margin_bottom = 206.998
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -41,8 +41,8 @@ __meta__ = {
 [node name="Move" type="Label" parent="Tutorial"]
 margin_left = 37.0
 margin_top = 175.0
-margin_right = 107.0
-margin_bottom = 203.0
+margin_right = 113.0
+margin_bottom = 208.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -53,10 +53,10 @@ __meta__ = {
 }
 
 [node name="Win" type="Label" parent="Tutorial"]
-margin_left = 381.351
-margin_top = 35.6031
-margin_right = 459.351
-margin_bottom = 68.6031
+margin_left = 377.663
+margin_top = 39.3371
+margin_right = 474.663
+margin_bottom = 72.3371
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
