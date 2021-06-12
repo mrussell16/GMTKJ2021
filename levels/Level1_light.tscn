@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://tilesets/Tileset_light.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/DimensionManager.gd" type="Script" id=2]
+[ext_resource path="res://images/Win_Tutorial.png" type="Texture" id=3]
 [ext_resource path="res://images/Move_Tutorial.png" type="Texture" id=4]
 [ext_resource path="res://images/Swap_Tutorial.png" type="Texture" id=5]
 
@@ -35,3 +36,8 @@ offset = Vector2( 724.671, -80.8143 )
 position = Vector2( 79.1227, 194.004 )
 scale = Vector2( 0.188754, 0.188754 )
 texture = ExtResource( 4 )
+
+[node name="Win_Tutorial" type="Sprite" parent="."]
+position = Vector2( 378.674, 53.0752 )
+scale = Vector2( 0.182957, 0.182957 )
+texture = ExtResource( 3 )
