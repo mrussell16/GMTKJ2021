@@ -27,8 +27,9 @@ position = Vector2( 311, 128 )
 position = Vector2( 456.835, 82.1171 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 52.3235, 270.346 )
+position = Vector2( 52, 270 )
 
 [connection signal="swap_dimension" from="Portals/Portal" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal2" to="." method="swap_dimension"]
 [connection signal="body_entered" from="Portals/EndPortal" to="." method="_on_end_portal_entered"]
+[connection signal="dark_time_remaining" from="Player" to="." method="_on_player_dark_time_remaining"]

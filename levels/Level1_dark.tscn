@@ -35,7 +35,7 @@ texture = ExtResource( 4 )
 offset = Vector2( 479.542, 248.29 )
 
 [node name="Reset_Tutorial" type="Sprite" parent="Tutorial"]
-position = Vector2( -244.101, -15.2558 )
+position = Vector2( -561.125, -45.9571 )
 scale = Vector2( 0.199096, 0.199096 )
 texture = ExtResource( 5 )
 offset = Vector2( 3315.37, 958.742 )

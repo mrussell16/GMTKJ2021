@@ -1,14 +1,25 @@
 extends KinematicBody2D
 
+class_name Player
+
+signal dark_time_remaining(time)
+
 export var move_speed := 200.0
 export var jump_factor := 0.4
 export var jump_pressed_remember_time := 0.1
 export var grounded_remember_time := 0.1
+export var max_dark_time := 5.0
+export var jump_dark_usage := 0.5
 
-var _velocity := Vector2.ZERO
-var _grounded_remember := 0.0
-var _jump_remember := 0.0
-var _facing_right := true
+const LIGHT_COLLISION_BIT = 0
+const DARK_COLLISION_BIT = 2
+
+var velocity := Vector2.ZERO
+var grounded_remember := 0.0
+var jump_remember := 0.0
+var facing_right := true
+var dark_timer := max_dark_time
+var in_light := true
 
 onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 onready var jump_speed: float = ProjectSettings.get_setting("physics/2d/default_gravity") * jump_factor
@@ -16,27 +27,36 @@ onready var sprite: Sprite = $Sprite
 
 
 func _physics_process(delta: float) -> void:
-    _grounded_remember -= delta
-    _jump_remember -= delta
+    grounded_remember -= delta
+    jump_remember -= delta
 
     if is_on_floor():
-        _grounded_remember = grounded_remember_time
+        grounded_remember = grounded_remember_time
 
     if Input.is_action_just_pressed("jump"):
-        _jump_remember = jump_pressed_remember_time
+        jump_remember = jump_pressed_remember_time
 
-    var is_jumping := (_grounded_remember > 0) and (_jump_remember > 0)
+    var is_jumping := (grounded_remember > 0) and (jump_remember > 0)
     if is_jumping:
-        _grounded_remember = 0
-        _jump_remember = 0
+        grounded_remember = 0
+        jump_remember = 0
 
-    var is_jump_interrupted := Input.is_action_just_released("jump") and _velocity.y < 0.0
+    var is_jump_interrupted := Input.is_action_just_released("jump") and velocity.y < 0.0
 
     var direction := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
+    if !in_light:
+        if direction != 0:
+            dark_timer -= delta
+        if is_jumping:
+            dark_timer -= jump_dark_usage
+
     flip_if_necessary(direction)
-    _velocity = calculate_velocity(_velocity, direction, is_jumping, is_jump_interrupted)
-    _velocity = move_and_slide(_velocity, Vector2.UP)
+    velocity = calculate_velocity(velocity, direction, is_jumping, is_jump_interrupted)
+    velocity = move_and_slide(velocity, Vector2.UP)
+
+    if !in_light:
+        emit_signal("dark_time_remaining", dark_timer)
 
 
 func calculate_velocity(start_velocity: Vector2, direction: float, is_jumping: bool, is_jump_interrupted: bool) -> Vector2:
@@ -59,6 +79,17 @@ func calculate_velocity(start_velocity: Vector2, direction: float, is_jumping: b
 
 
 func flip_if_necessary(direction: float) -> void:
-    if (direction > 0 and not _facing_right) or (direction < 0 and _facing_right):
-        _facing_right = not _facing_right
-        sprite.flip_h = not _facing_right
+    if (direction > 0 and not facing_right) or (direction < 0 and facing_right):
+        facing_right = not facing_right
+        sprite.flip_h = not facing_right
+
+
+func set_dimension(light: bool) -> void:
+    in_light = light
+    dark_timer = max_dark_time
+    set_collision_mask_bit(LIGHT_COLLISION_BIT, in_light)
+    set_collision_mask_bit(DARK_COLLISION_BIT, !in_light)
+
+
+func reset_position(entry_portal_position: Vector2) -> void:
+    position = entry_portal_position

@@ -16,8 +16,7 @@ Key ideas:
 
 # ToDo
 
-* Countdown for dark dimension
-    * Reset player to light dimension portal when out of time
+* UI for dark timer
 * Add enemies to get light seeds
 * Better player sprite
 * More Levels
