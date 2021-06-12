@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
 [ext_resource path="res://levels/Level1_dark.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/Level1_light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/portal/Portal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/end_portal/EndPortal.tscn" type="PackedScene" id=6]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -13,7 +12,6 @@ script = ExtResource( 1 )
 [node name="Dark" parent="." instance=ExtResource( 2 )]
 
 [node name="Light" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="Portals" type="Node2D" parent="."]
 
@@ -23,13 +21,16 @@ position = Vector2( 450, 239 )
 [node name="Portal2" parent="Portals" instance=ExtResource( 5 )]
 position = Vector2( 311, 128 )
 
-[node name="EndPortal" parent="Portals" instance=ExtResource( 6 )]
-position = Vector2( 456.835, 82.1171 )
-
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 52, 270 )
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 512
+limit_bottom = 304
+
+[connection signal="end_portal_entered" from="Light" to="." method="_on_end_portal_entered"]
 [connection signal="swap_dimension" from="Portals/Portal" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal2" to="." method="swap_dimension"]
-[connection signal="body_entered" from="Portals/EndPortal" to="." method="_on_end_portal_entered"]
 [connection signal="dark_time_remaining" from="Player" to="." method="_on_player_dark_time_remaining"]
