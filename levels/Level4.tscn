@@ -1,35 +1,27 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/LevelManager.gd" type="Script" id=1]
-[ext_resource path="res://levels/Level3_dark.tscn" type="PackedScene" id=2]
-[ext_resource path="res://levels/Level3_light.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/Level4_dark.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/Level4_light.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/portal/Portal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
-[ext_resource path="res://objects/box/Box.tscn" type="PackedScene" id=7]
 
-[node name="Level3" type="Node2D"]
+[node name="Level4" type="Node2D"]
 script = ExtResource( 1 )
-next_level = "Level4"
+next_level = "Win"
 
 [node name="Dark" parent="." instance=ExtResource( 2 )]
-visible = false
 
 [node name="Light" parent="." instance=ExtResource( 3 )]
 
 [node name="Portals" type="Node2D" parent="."]
 
-[node name="Portal" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 73.9928, 145.131 )
-
 [node name="Portal2" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 548.481, 95.0367 )
+position = Vector2( 546.894, 95.8304 )
 
 [node name="Portal3" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 635.455, 96.4509 )
-
-[node name="Portal4" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 740.814, 238.579 )
+position = Vector2( 710.857, 94.8635 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 52, 269.251 )
@@ -45,16 +37,9 @@ smoothing_speed = 7.0
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
-[node name="Movables" type="Node2D" parent="."]
-
-[node name="Box" parent="Movables" instance=ExtResource( 7 )]
-position = Vector2( 257.819, 269.887 )
-
 [connection signal="end_portal_entered" from="Light" to="." method="_on_end_portal_entered"]
-[connection signal="swap_dimension" from="Portals/Portal" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal2" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal3" to="." method="swap_dimension"]
-[connection signal="swap_dimension" from="Portals/Portal4" to="." method="swap_dimension"]
 [connection signal="dark_time_remaining" from="Player" to="HUD" method="_on_dark_time_remaining"]
 [connection signal="dark_time_remaining" from="Player" to="." method="_on_player_dark_time_remaining"]
 [connection signal="player_killed" from="Player" to="." method="reset_player"]

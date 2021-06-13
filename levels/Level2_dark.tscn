@@ -9,6 +9,7 @@
 
 [node name="Level2_dark" type="Node2D"]
 script = ExtResource( 2 )
+light = false
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

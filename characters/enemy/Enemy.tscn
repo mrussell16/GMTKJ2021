@@ -9,7 +9,7 @@
 extents = Vector2( 4.97454, 2.74807 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8.833, 2.60776 )
+extents = Vector2( 8.833, 2.48818 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7.57023, 1.76591 )
@@ -32,7 +32,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2( -0.0701523, -3.57785 )
+position = Vector2( 0.166084, -2.71166 )
 shape = SubResource( 2 )
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -40,7 +40,7 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2( -0.140308, -6.94523 )
+position = Vector2( -0.140308, -7.26021 )
 shape = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
@@ -50,9 +50,9 @@ texture = ExtResource( 3 )
 color = Color( 1, 0, 0, 0.607843 )
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
-position = Vector2( -9.88053, -4.20448 )
+position = Vector2( -7.05399, -5.2556 )
 enabled = true
-cast_to = Vector2( 0, 16 )
+cast_to = Vector2( 0, 8 )
 collision_mask = 5
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]

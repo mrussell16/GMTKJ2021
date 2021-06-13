@@ -20,7 +20,7 @@ animation = "jump"
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( -50.3026, -43.352 )
+position = Vector2( -0.749172, -20.935 )
 texture = ExtResource( 2 )
 shadow_enabled = true
 

@@ -6,6 +6,8 @@ signal end_portal_entered
 
 onready var walls: TileMap = $Walls
 
+export var light := true
+
 var tutorial_texts = []
 var light_seeds = []
 var enemies = []
@@ -22,6 +24,8 @@ func _ready() -> void:
     var enemies_parent = get_node_or_null("Enemies")
     if enemies_parent:
         enemies = enemies_parent.get_children()
+        for enemy in enemies:
+            enemy.set_dimension(light)
 
     var light_seeds_parent = get_node_or_null("LightSeeds")
     if light_seeds_parent:
