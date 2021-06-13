@@ -29,7 +29,7 @@ var entry_position := Vector2(52.0, 270.0)
 
 onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 onready var jump_speed: float = ProjectSettings.get_setting("physics/2d/default_gravity") * jump_factor
-onready var sprite: Sprite = $Sprite
+onready var sprite: AnimatedSprite = $Sprite
 
 
 func _ready() -> void:
@@ -64,6 +64,13 @@ func _physics_process(delta: float) -> void:
 
     var direction := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
+    if not is_on_floor():
+        sprite.play("jump")
+    elif direction != 0:
+        sprite.play("walk")
+    else:
+        sprite.play("idle")
+
     if !in_light:
         if direction != 0:
             dark_timer -= delta
@@ -92,11 +99,6 @@ func calculate_velocity(start_velocity: Vector2, direction: float, is_jumping: b
 
     if is_jumping:
         new_velocity.y = -jump_speed
-
-    # if direction != 0:
-    #     animationPlayer.play("Move")
-    # else:
-    #     animationPlayer.play("Idle")
 
     if is_jump_interrupted:
         new_velocity.y = 0

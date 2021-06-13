@@ -17,7 +17,6 @@ Key ideas:
 # ToDo
 
 * Sun Morn
-    * Better player sprite + animation (maybe get online)
     * Sounds
         * Portal
             * Dimension
@@ -36,3 +35,7 @@ Key ideas:
     * Stretch
         * Level 4
         * Final Level Release
+
+# Known Issues
+
+* Player collision needs to be set to `infinite_inertia = false` for standing on boxes.  This causes the player's jump height to be damped if they are sliding along a tilemap wall.
