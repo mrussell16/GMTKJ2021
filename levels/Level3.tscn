@@ -13,6 +13,7 @@ script = ExtResource( 1 )
 next_level = "Win"
 
 [node name="Dark" parent="." instance=ExtResource( 2 )]
+visible = false
 
 [node name="Light" parent="." instance=ExtResource( 3 )]
 
@@ -37,7 +38,7 @@ position = Vector2( 52, 269.251 )
 current = true
 limit_left = 0
 limit_top = 0
-limit_right = 1648
+limit_right = 784
 limit_bottom = 304
 smoothing_enabled = true
 smoothing_speed = 7.0
