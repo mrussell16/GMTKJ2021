@@ -18,13 +18,13 @@ next_level = "Win"
 [node name="Portals" type="Node2D" parent="."]
 
 [node name="Portal2" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 546.894, 95.8304 )
+position = Vector2( 552, 96 )
 
 [node name="Portal3" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 710.857, 94.8635 )
+position = Vector2( 712, 96 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 52, 269.251 )
+position = Vector2( 56, 272 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true

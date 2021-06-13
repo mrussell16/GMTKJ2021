@@ -20,19 +20,19 @@ visible = false
 [node name="Portals" type="Node2D" parent="."]
 
 [node name="Portal" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 73.9928, 145.131 )
+position = Vector2( 56, 144 )
 
 [node name="Portal2" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 548.481, 95.0367 )
+position = Vector2( 552, 96 )
 
 [node name="Portal3" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 635.455, 96.4509 )
+position = Vector2( 632, 96 )
 
 [node name="Portal4" parent="Portals" instance=ExtResource( 5 )]
-position = Vector2( 740.814, 238.579 )
+position = Vector2( 744, 240 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 52, 269.251 )
+position = Vector2( 48, 272 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -48,15 +48,15 @@ smoothing_speed = 7.0
 [node name="Movables" type="Node2D" parent="."]
 
 [node name="Box" parent="Movables" instance=ExtResource( 7 )]
-position = Vector2( 257.819, 269.887 )
+position = Vector2( 256, 272 )
 
 [connection signal="end_portal_entered" from="Light" to="." method="_on_end_portal_entered"]
 [connection signal="swap_dimension" from="Portals/Portal" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal2" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal3" to="." method="swap_dimension"]
 [connection signal="swap_dimension" from="Portals/Portal4" to="." method="swap_dimension"]
-[connection signal="dark_time_remaining" from="Player" to="HUD" method="_on_dark_time_remaining"]
 [connection signal="dark_time_remaining" from="Player" to="." method="_on_player_dark_time_remaining"]
+[connection signal="dark_time_remaining" from="Player" to="HUD" method="_on_dark_time_remaining"]
 [connection signal="player_killed" from="Player" to="." method="reset_player"]
 
 [editable path="HUD"]

@@ -259,6 +259,6 @@ __meta__ = {
 [node name="Interactables" type="Node2D" parent="."]
 
 [node name="EndPortal" parent="Interactables" instance=ExtResource( 6 )]
-position = Vector2( 1589.84, 241.196 )
+position = Vector2( 1592, 240 )
 
 [connection signal="body_entered" from="Interactables/EndPortal" to="." method="_on_end_portal_entered"]

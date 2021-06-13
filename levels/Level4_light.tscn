@@ -32,7 +32,7 @@ tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 1, -65535, 1, 1, -65534, 1, 1, -6
 position = Vector2( 637.3, 128 )
 
 [node name="EndPortal" parent="Interactables" instance=ExtResource( 6 )]
-position = Vector2( 640.539, 233.948 )
+position = Vector2( 648, 240 )
 
 [node name="Door" parent="Interactables" instance=ExtResource( 5 )]
 position = Vector2( 592, 272 )
@@ -40,19 +40,19 @@ position = Vector2( 592, 272 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 188.913, 239.231 )
+position = Vector2( 192, 240 )
 speed = 5.0
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 268.34, 239.382 )
+position = Vector2( 264, 240 )
 speed = 5.0
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 347.784, 239.159 )
+position = Vector2( 336, 240 )
 speed = 5.0
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 428.205, 239.159 )
+position = Vector2( 424, 240 )
 speed = 5.0
 
 [node name="Spikes" type="Node2D" parent="."]

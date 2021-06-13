@@ -19,10 +19,6 @@ Key ideas:
 * Sun Morn
     * Itch page
     * Initial Release
-* Sun Afternoon
-    * Stretch
-        * Level 4
-        * Final Level Release
 
 # Known Issues
 

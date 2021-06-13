@@ -33,18 +33,18 @@ color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
 [node name="LightSeeds" type="Node2D" parent="."]
 
 [node name="LightSeed" parent="LightSeeds" instance=ExtResource( 4 )]
-position = Vector2( 54.583, 247.832 )
+position = Vector2( 56, 248 )
 
 [node name="LightSeed2" parent="LightSeeds" instance=ExtResource( 4 )]
-position = Vector2( 570.488, 185.13 )
+position = Vector2( 568, 184 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 183.983, 124.878 )
+position = Vector2( 184, 128 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 368.937, 221.766 )
+position = Vector2( 368, 224 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 333.246, 126.609 )
+position = Vector2( 336, 128 )

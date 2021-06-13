@@ -6,7 +6,7 @@
 [ext_resource path="res://characters/player/PlayerHurt.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 9.72366, 20.8116 )
+extents = Vector2( 6.34531, 20.8116 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -16,7 +16,7 @@ script = ExtResource( 3 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -24 )
 frames = ExtResource( 1 )
-animation = "jump"
+animation = "idle"
 playing = true
 
 [node name="Light2D" type="Light2D" parent="."]
