@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
         jump_remember -= delta
 
     if reset_cooldown_timer >= 0:
+        sprite.play("idle")
         reset_cooldown_timer -= delta
         velocity = calculate_velocity(velocity, 0, false, false)
         velocity = move_and_slide(velocity, Vector2.UP)
@@ -127,6 +128,7 @@ func reset_position() -> void:
 
 
 func kill() -> void:
+    $HurtSound.play()
     emit_signal("player_killed")
 
 

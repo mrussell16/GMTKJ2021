@@ -15,6 +15,7 @@ onready var hud: HUD = $HUD
 
 var in_light := false
 var movables = []
+var end_level_timer := -1.0
 
 
 func _ready() -> void:
@@ -25,9 +26,14 @@ func _ready() -> void:
         movables = movables_parent.get_children()
 
 
-func _process(_delta: float):
+func _process(delta: float):
     if Input.is_action_just_pressed("reset"):
         var _ret = get_tree().reload_current_scene()
+
+    if end_level_timer > 0:
+        end_level_timer -= delta
+        if end_level_timer <= 0:
+            go_to_next()
 
 
 func swap_dimension():
@@ -46,9 +52,12 @@ func reset_player():
     swap_dimension()
 
 
-func _on_end_portal_entered(_body: Node):
+func go_to_next():
     var _ret = get_tree().change_scene("res://levels/"+next_level+".tscn")
 
+func _on_end_portal_entered(_body: Node):
+    player.reset_cooldown_timer = 1.0
+    end_level_timer = 1.0
 
 func _on_player_dark_time_remaining(time: float, _max_time: float):
     if time <= 0:

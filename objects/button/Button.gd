@@ -15,6 +15,7 @@ var has_been_pressed := false
 func _on_pressed(_body: Node) -> void:
     if not has_been_pressed:
         emit_signal("pressed")
+        $ActivateSound.play()
         $Sprite.set_texture(pressed_image)
         has_been_pressed = true
 

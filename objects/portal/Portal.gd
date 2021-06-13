@@ -7,6 +7,7 @@ var player_inside: bool = false
 func _process(_delta: float) -> void:
     if player_inside and Input.is_action_just_pressed("swap_dimension"):
         emit_signal("swap_dimension")
+        $ActivateSound.play()
 
 func _on_body_entered(_body: Node):
     player_inside = true

@@ -48,6 +48,7 @@ func _on_HurtBox_body_entered(body: Node) -> void:
     body.dark_timer = body.max_dark_time
     body.bounce()
     set_alive(false)
+    $HurtSound.play()
 
 
 func _on_HitBox_body_entered(body: Player) -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objects/end_portal/EndPortal.png" type="Texture" id=1]
 [ext_resource path="res://images/Point_light.png" type="Texture" id=2]
 [ext_resource path="res://objects/end_portal/EndPortal.gd" type="Script" id=3]
+[ext_resource path="res://objects/end_portal/EndPortal.wav" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.1728
@@ -24,3 +25,8 @@ texture = ExtResource( 1 )
 scale = Vector2( 0.345197, 0.345197 )
 texture = ExtResource( 2 )
 color = Color( 0.380392, 0.878431, 0.537255, 1 )
+
+[node name="PortalSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

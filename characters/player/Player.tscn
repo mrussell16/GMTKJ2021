@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://characters/player/Player_animation.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://images/Point_light.png" type="Texture" id=2]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/PlayerHurt.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 9.72366, 20.8116 )
@@ -26,3 +27,6 @@ shadow_enabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.471939, -21 )
 shape = SubResource( 6 )
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://characters/enemy/Enemy.png" type="Texture" id=1]
 [ext_resource path="res://characters/enemy/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://images/Point_light.png" type="Texture" id=3]
+[ext_resource path="res://characters/enemy/EnemyHurt.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.97454, 2.74807 )
@@ -53,6 +54,9 @@ position = Vector2( -9.88053, -4.20448 )
 enabled = true
 cast_to = Vector2( 0, 16 )
 collision_mask = 5
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LightSeed.wav-2d474e8ecf31ac6ed46fbb430e699ca7.sample"
+
+[deps]
+
+source_file="res://objects/light_seed/LightSeed.wav"
+dest_files=[ "res://.import/LightSeed.wav-2d474e8ecf31ac6ed46fbb430e699ca7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

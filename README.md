@@ -17,21 +17,9 @@ Key ideas:
 # ToDo
 
 * Sun Morn
-    * Sounds
-        * Portal
-            * Dimension
-            * Level
-        * Light seed
-        * Button
-        * Death
-            * Spike
-            * Enemy
-            * Timeout
     * Itch page
     * Initial Release
 * Sun Afternoon
-    * Music
-    * Music Release
     * Stretch
         * Level 4
         * Final Level Release
