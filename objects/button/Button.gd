@@ -19,7 +19,6 @@ func _on_pressed(_body: Node) -> void:
         has_been_pressed = true
 
 func set_active(active: bool) -> void:
-    print("Setting active on button to ", active)
     $Area2D.set_collision_mask_bit(PLAYER_COLLISION_BIT, active)
     set_collision_mask_bit(PLAYER_COLLISION_BIT, active)
     set_collision_layer_bit(LIGHT_COLLISION_BIT, active)

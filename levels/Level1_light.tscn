@@ -66,7 +66,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EndPortal" parent="." instance=ExtResource( 6 )]
+[node name="Interactables" type="Node2D" parent="."]
+
+[node name="EndPortal" parent="Interactables" instance=ExtResource( 6 )]
 position = Vector2( 456.835, 82.1171 )
 
-[connection signal="body_entered" from="EndPortal" to="." method="_on_end_portal_entered"]
+[connection signal="body_entered" from="Interactables/EndPortal" to="." method="_on_end_portal_entered"]
