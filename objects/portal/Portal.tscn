@@ -28,6 +28,7 @@ color = Color( 0.831373, 0.109804, 1, 1 )
 
 [node name="ActivateSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+volume_db = -9.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
